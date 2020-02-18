@@ -1,0 +1,85 @@
+{
+    "fields": [
+        {
+            "name": "order_type",
+            "type": "biginteger#unsigned"
+        },
+        {
+            "name": "company_id",
+            "type": "biginteger#unsigned"
+        },
+        {
+            "name": "weight",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "quantity",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "expected_delivery_date",
+            "type": "datetime"
+        },
+        {
+            "name": "work_order_no",
+            "type": "text"
+        },
+        {
+            "name": "purchase_order_date",
+            "type": "datetime"
+        },
+        {
+            "name": "purchase_order_number",
+            "type": "string"
+        },
+        {
+            "name": "price",
+            "type": "float"
+        },
+        {
+            "name": "user_id",
+            "type": "biginteger#unsigned"
+        },
+        {
+            "name": "status",
+            "type": "select",
+            "options": {
+                "0": "InActive",
+                "1": "Active"
+            }
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "user_id",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "order_type",
+            "references": "id",
+            "on": "order_types",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "company_id",
+            "references": "id",
+            "on": "companies",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\User"
+        }
+    ],
+    "validations": [
+        {
+            "field": "title",
+            "rules": "required|max:10"
+        }
+    ]
+}

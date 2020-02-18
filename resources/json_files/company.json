@@ -1,0 +1,73 @@
+{
+    "fields": [
+        {
+            "name": "title",
+            "type": "string"
+        },
+        {
+            "name": "content",
+            "type": "text"
+        },
+        {
+            "name": "gst_no",
+            "type": "string"
+        },
+        {
+            "name": "address",
+            "type": "text"
+        },
+        {
+            "name": "email",
+            "type": "string"
+        },
+        {
+            "name": "contact_no",
+            "type": "string"
+        },
+        {
+            "name": "alt_contact_no",
+            "type": "string"
+        },
+        {
+            "name": "company_code",
+            "type": "string"
+        },
+        {
+            "name": "terms_and_condition",
+            "type": "text"
+        },
+        {
+            "name": "user_id",
+            "type": "biginteger#unsigned"
+        },
+        {
+            "name": "status",
+            "type": "select",
+            "options": {
+                "0": "InActive",
+                "1": "Active"
+            }
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "user_id",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\User"
+        }
+    ],
+    "validations": [
+        {
+            "field": "title",
+            "rules": "required|max:10"
+        }
+    ]
+}
