@@ -23,7 +23,7 @@ class UserTypesController extends Controller
         if (!empty($keyword)) {
             $usertypes = UserType::where('title', 'LIKE', "%$keyword%")
                 ->orWhere('content', 'LIKE', "%$keyword%")
-                ->orWhere('user_id', 'LIKE', "%$keyword%")
+//                ->orWhere('user_id', 'LIKE', "%$keyword%")
                 ->orWhere('status', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {

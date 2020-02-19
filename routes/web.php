@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //Route::resource('admin/posts', 'Admin\\PostsController');
+Route::get('/', 'HomeController@index')->name('home');
 Route::resource('admin/order-channel', 'Admin\\OrderChannelController');
 Route::resource('admin/companies', 'Admin\\CompaniesController');
 Route::resource('admin/order-status', 'Admin\\OrderStatusController');
@@ -23,3 +24,6 @@ Route::resource('admin/order-types', 'Admin\\OrderTypesController');
 Route::resource('admin/user-types', 'Admin\\UserTypesController');
 Route::resource('admin/navigation', 'Admin\\NavigationController');
 Route::resource('admin/orders', 'Admin\\OrdersController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
